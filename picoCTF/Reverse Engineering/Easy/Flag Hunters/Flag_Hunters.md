@@ -1,6 +1,6 @@
 # Flag Hunters
 
-![image.png](Images/image.png)
+![image.png](images/image.png)
 
 We are given a file called `lyrics-reader.py`
 
