@@ -1,6 +1,6 @@
 # W1seGuy
 
-![image.png](W1seGuy/image.png)
+![image.png](images/image.png)
 
 In this challenge, we need to find the encryption key. Notice that they key is only 5-character long.
 
@@ -15,13 +15,13 @@ We already know the flag format is `THM{`, so we can immediately know the first 
 
 We just need to XOR with the know flag header `THM{`, and we know the first 4 letters are `UTde`
 
-![image.png](W1seGuy/image%201.png)
+![image.png](images/image%201.png)
 
 The next step is just trying to figure out the last letter/digit. We just need to enumerate all possibilities.
 
 I got the key `UTdez` , and successfully retrieve the first flag: `THM{p1alntExtAtt4ckcAnr3alLyhUrty0urxOr}`
 
-![image.png](W1seGuy/image%202.png)
+![image.png](images/image%202.png)
 
 Submit the key to the server, and we can get the second flag: `THM{BrUt3_ForC1nG_XOR_cAn_B3_FuN_nO?}`
 
@@ -34,4 +34,4 @@ Congrats! That is the correct key! Here is flag 2: THM{BrUt3_ForC1nG_XOR_cAn_B3_
 
 ## Finished
 
-![image.png](W1seGuy/image%203.png)
+![image.png](images/image%203.png)
