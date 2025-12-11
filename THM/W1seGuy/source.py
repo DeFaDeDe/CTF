@@ -20,7 +20,8 @@ def setup(server, key):
     return hex_encoded
 
 def start(server):
-    res = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
+    # Choose 5 letters/digits as the key
+    res = ''.join(random.choices(string.ascii_letters + string.digits, k=5)) 
     key = str(res)
     hex_encoded = setup(server, key)
     send_message(server, "This XOR encoded text has flag 1: " + hex_encoded + "\n")
