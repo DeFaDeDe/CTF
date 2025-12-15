@@ -1,6 +1,6 @@
 # Rust fixme 1
 
-![image.png](Rust%20fixme%201/image.png)
+![image.png](images/image.png)
 
 As a person that has never touch Rust before, I should refer to the hints
 
