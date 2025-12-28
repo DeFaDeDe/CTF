@@ -1,8 +1,6 @@
 # EVEN RSA CAN BE BROKEN???
 
-!
-[
-image.png](images/image.png)
+![image.png](images/image.png)
 
 The encryption is given as follows
 
@@ -48,21 +46,13 @@ RSA is an asymmetric encryption scheme.
 
 To decrypt the ciphertext:
 
-1.
- Find p and q.
- Their product is N.
- To do that, we can find them quickly using FactorDB (http://factordb.com/)
-2.
- Compute `(p-1)*(q-1)`, which is called Euler's totient function(denoted as phi).
+1. Find p and q. Their product is N. To do that, we can find them quickly using FactorDB (http://factordb.com/)
+2. Compute `(p-1)*(q-1)`, which is called Euler's totient function(denoted as phi).
  It is basically the coprime of the element in the range of 1 to that element.
  Since both p and q are prime, all the values from 1 to n-1 are coprime; therefore, just subtract 1 from each element.
-3.
- Then use inverse to find the d by computing the modular inverse of e mod phi
-4.
- Decrypt the ciphertext using c^d mod N
+3. Then use inverse to find the d by computing the modular inverse of e mod phi
+4. Decrypt the ciphertext using c^d mod N
 
-Refer to [decrypt.py](http://decrypt.py) for the implementation.
+Refer to decrypt.py for the implementation.
 
-Flag: `
-picoCTF{tw0_1$_pr!
-m341c6ed35}`
+Flag: `picoCTF{tw0_1$_pr!m341c6ed35}`
