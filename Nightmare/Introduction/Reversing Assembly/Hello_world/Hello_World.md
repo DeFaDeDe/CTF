@@ -2,8 +2,8 @@
 
 ## Challenge
 
-> Installation link: https://github.com/kablaa/CTF-Workshop/raw/refs/heads/master/Reversing/Challenges/HelloWorld/hello_world
-> 
+> Installation link: `https://github.com/kablaa/CTF-Workshop/raw/refs/heads/master/Reversing/Challenges/HelloWorld/hello_world`
+
 
 ## Objdump
 
@@ -91,20 +91,19 @@ End of assembler dump.
 ```
 
 We can see that there is puts function used, which prints character until a null(`\x00`) character is met
-
-<aside>
-💡
-
-For the current time, I will skip PLT(Procedure Linkage Table) for a while, but I found one detailed article that worth-reading, I will attached here as a further reading. 
-
-GOT and PLT for pwning. (https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html)
-
-</aside>
-
 ```bash
 0x0804840f <+20>:    push   0x80484b0
    0x08048414 <+25>:    call   0x80482d0 <puts@plt>
 ```
+
+<aside>
+💡
+For the current time, I will skip PLT(Procedure Linkage Table) for a while, but I found one detailed article that worth-reading, I will attached here as a further reading. 
+ 
+[GOT and PLT for pwning.](https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html)
+
+</aside>
+
 
 But what is inside the address `0x80484b0`? We can use the gdb to read it
 
