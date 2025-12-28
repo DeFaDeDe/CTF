@@ -2,8 +2,8 @@
 
 ## Challenge
 
-> Installation link: https://github.com/kablaa/CTF-Workshop/raw/refs/heads/master/Reversing/Challenges/HelloWorld/hello_world
-> 
+> Installation link: `https://github.com/kablaa/CTF-Workshop/raw/refs/heads/master/Reversing/Challenges/HelloWorld/hello_world`
+
 
 ## Objdump
 
