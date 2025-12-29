@@ -37,7 +37,10 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 15.69 seconds
 ```
 
-We can then determine that the server is running Apache version `2.4.18`. However, to obtain more details, we would like to access port 80 first, and we see only 
+We can then determine that the server is running Apache version `2.4.18`. 
+
+## HTTP (Port 80)
+To obtain more details, we would like to access port 80 first, and we see only 
 
 > ‘Hello world!’
 > 
@@ -46,6 +49,7 @@ However, if we look at the source code, we can see there is a hidden comment
 
 ![image.png](images/image.png)
 
+## Enumeration
 We can then navigate to `/nibbleblog/` and take a look, which brings us to an empty blog page
 
 ![image.png](images/image%201.png)
@@ -131,7 +135,7 @@ Optionals requirements
 
 ```
 
-If we try to search for exploits, we can find that there is only a file upload exploit, but we want to find the SSH credentials, which does not help much
+If we try to search for exploits, we can find that there is only a file upload exploit, which we do not know how it can help us at this point
 
 ```bash
 └─$ searchsploit Nibbleblog
@@ -143,7 +147,7 @@ Nibbleblog 4.0.3 - Arbitrary File Upload (Metasploit)                           
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
 Shellcodes: No Results
 ```
-
+## Finding Login Credentials
 We can then access to `admin.php`. It is just an ordinary login pages, the credentials are not hiding in  the source code, so guess we need to find them on our own
 
 ![image.png](images/image%202.png)
@@ -170,6 +174,7 @@ Using the credentials `admin:nibbles`, we can login as admin
 
 ![image.png](images/f20e531b-0fd7-4b6c-b9d0-05671996ee55.png)
 
+## Post-Exploitation in Admin Panel
 We can then navigate around and see is there any vulnerabilities we can exploit. After a while, I found that there is a plugin called my image which seems to be very promising
 
 ![image.png](images/image%205.png)
@@ -191,6 +196,7 @@ Open it and we saw
 
 That’s means that it do not check whether it is a image file or not. Therefore we can try to use a reverse shell to connect to the server
 
+## Reverse Shell and User Flag
 The below payload are generated using [Revshell.com](https://www.revshells.com/)
 
 ```php
@@ -331,7 +337,8 @@ User Flag: `79c03865431abf47b90ef24b9695e148`
 
 We can then use `sudo -l` to check what commands we can run with sudo
 
-```php
+## Root Flag
+```bash
  sudo -l
 Matching Defaults entries for nibbler on Nibbles:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
@@ -343,7 +350,7 @@ User nibbler may run the following commands on Nibbles:
 
 There is a bash file we can run with sudo. which is included in the zip file under the nibbler directory. We can first unzip and take a look at its content
 
-```php
+```bash
 $ unzip personal.zip
 Archive:  personal.zip
    creating: personal/
