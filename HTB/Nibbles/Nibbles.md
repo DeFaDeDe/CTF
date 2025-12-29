@@ -44,11 +44,11 @@ We can then determine that the server is running Apache version `2.4.18`. Howeve
 
 However, if we look at the source code, we can see there is a hidden comment
 
-![image.png](Nibbles/image.png)
+![image.png](images/image.png)
 
 We can then navigate to `/nibbleblog/` and take a look, which brings us to an empty blog page
 
-![image.png](Nibbles/image%201.png)
+![image.png](images/image%201.png)
 
 However there is only emptiness here. To find more details, we need to enumerate the endpoints
 
@@ -146,43 +146,43 @@ Shellcodes: No Results
 
 We can then access to `admin.php`. It is just an ordinary login pages, the credentials are not hiding in  the source code, so guess we need to find them on our own
 
-![image.png](Nibbles/image%202.png)
+![image.png](images/image%202.png)
 
 How about `content`? we can take a look, and we can see there are three directory in total, which looks promising
 
-![image.png](Nibbles/c8843f3c-866f-4bc3-8171-2ba7028f421e.png)
+![image.png](images/c8843f3c-866f-4bc3-8171-2ba7028f421e.png)
 
 If we navigate to the `private` directory, we can see there are many xml files
 
-![image.png](Nibbles/9d1c5007-7290-4f14-b38c-c769191872b2.png)
+![image.png](images/9d1c5007-7290-4f14-b38c-c769191872b2.png)
 
 The `users.xml` file first caught my attention, so I immediately open it, and we can confirm that the user `admin` is indeed existing.
 
-![image.png](Nibbles/image%203.png)
+![image.png](images/image%203.png)
 
 How about `config.xml`? It might seems that it does not reveal the password at first
 
-![image.png](Nibbles/image%204.png)
+![image.png](images/image%204.png)
 
 So what I did is I read all the files, and I can’t still can’t find the password. So after a while, I realize what if the password is the same as the challenge name (I took too long to realize).
 
 Using the credentials `admin:nibbles`, we can login as admin
 
-![image.png](Nibbles/f20e531b-0fd7-4b6c-b9d0-05671996ee55.png)
+![image.png](images/f20e531b-0fd7-4b6c-b9d0-05671996ee55.png)
 
 We can then navigate around and see is there any vulnerabilities we can exploit. After a while, I found that there is a plugin called my image which seems to be very promising
 
-![image.png](Nibbles/image%205.png)
+![image.png](images/image%205.png)
 
 We can try to upload a php file with `<?php system('id')?>`, and see if we can see the results.
 
 Despite the errors, the file is successfully uploaded
 
-![image.png](Nibbles/image%206.png)
+![image.png](images/image%206.png)
 
 But where is the result? To find it, we need to go back to the `private` directory, inside there lies an image.php
 
-![image.png](Nibbles/image%207.png)
+![image.png](images/image%207.png)
 
 Open it and we saw
 
