@@ -1,20 +1,20 @@
 # WebDecode
 
-![image.png](imagesimage.png)
+![image.png](images/image.png)
 
 There are only three pages available
 
 ### Home
 
-![image.png](imagesimage%201.png)
+![image.png](images/image%201.png)
 
 ### About
 
-![image.png](imagesimage%202.png)
+![image.png](images/image%202.png)
 
 ### Contact
 
-![image.png](imagesimage%203.png)
+![image.png](images/image%203.png)
 
 At first glance, it might seem that the flag is nowhere, but in the about page, we can see ‘Try inspecting the page!!’, with the description having ‘web inspector', we can try to press `F12`  or `ctrl-U`
 
