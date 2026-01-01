@@ -76,7 +76,7 @@ We can see that the data is send the the `/convert` without any sanitization. So
 We can do a simple enumeration to find out is there any interesting endpoints.
 
 ```bash
-root@ip-10-48-112-29:~# gobuster dir -u http://xx.xx.xxx.xx/ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt
+root@ip-xx-xx-xxx-xx:~# gobuster dir -u http://xx.xx.xxx.xx/ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt
 ===============================================================
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
