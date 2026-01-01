@@ -2,8 +2,6 @@
 
 ![image.png](images/image.png)
 
-[confidential.pdf](images/confidential.pdf)
-
 Here is how the PDF looks like:
 
 ![image.png](images/image%201.png)
