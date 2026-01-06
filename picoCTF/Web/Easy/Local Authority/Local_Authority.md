@@ -1,10 +1,10 @@
 # Local Authority
 
-![image.png](Local%20Authority/image.png)
+![image.png](images/image.png)
 
 We will see a login form appears before us when we arrive the instance
 
-![image.png](Local%20Authority/image%201.png)
+![image.png](images/image%201.png)
 
 If we inspect the HTML, we will see that there is a `login.php` that is responsible for handling our login
 
@@ -36,7 +36,7 @@ If we inspect the HTML, we will see that there is a `login.php` that is responsi
 
 We can see a usage of the `checkPassword` function, but where is the declaration? It is actually at the script tag
 
-![image.png](Local%20Authority/image%202.png)
+![image.png](images/image%202.png)
 
 Opening it up, we will find the credentials for us to login
 
@@ -58,6 +58,6 @@ credentials: `admin:strongPassword098765`
 
 Entering them will give us the flag
 
-![image.png](Local%20Authority/image%203.png)
+![image.png](images/image%203.png)
 
 Flag: `picoCTF{j5_15_7r4n5p4r3n7_05df90c8}`
