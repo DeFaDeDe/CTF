@@ -1,8 +1,14 @@
 # Loop
 
+## Challenge
+
+> Source: `https://github.com/kablaa/CTF-Workshop/blob/master/Reversing/Challenges/Loop/loop`
+> 
+
+
 ## gdb-pwndbg
 
-We should first looking at the main function
+We should first look at the main function
 
 ```bash
 pwndbg> info fun
