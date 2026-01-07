@@ -1,4 +1,4 @@
 *.dd
 CryptoHack/*
 THM/Advent\ of\ Cyber\ 2025/
-*/.gdb_history
+.gdb_history
