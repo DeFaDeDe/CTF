@@ -2,7 +2,7 @@
 
 ## Challenge
 
-> Installation link: `https://github.com/kablaa/CTF-Workshop/blob/master/Reversing/Challenges/IfThen/if_then`
+> Source: `https://github.com/kablaa/CTF-Workshop/blob/master/Reversing/Challenges/IfThen/if_then`
 > 
 
 ## GDB
