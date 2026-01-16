@@ -1,1 +1,0 @@
-print("Printing the flag...")
