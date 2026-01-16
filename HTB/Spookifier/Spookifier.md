@@ -1,6 +1,6 @@
 # Spookifier
 
-![image.png](Spookifier/image.png)
+![image.png](images/image.png)
 
 ## Source Code analysis
 
@@ -195,7 +195,7 @@ def spookify(text):
 
 Inputting the ‘test’ word will return us ‘test’ in different spooky fonts.
 
-![image.png](Spookifier/image%201.png)
+![image.png](images/image%201.png)
 
 So after we submit the word ‘test’, it will send a post request to the root(`/`).
 
@@ -218,7 +218,7 @@ If you notice the quotes I included from the documents, you will see that templa
 
 We can find the payloads and the attacker techniques in [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/Python.md#mako), We can see all the payloads are wrapped in `${<payload>}`, so to test whether if it is vulnerable to SSTI, we should try to use `${3*3}` to see its result
 
-![image.png](Spookifier/image%202.png)
+![image.png](images/image%202.png)
 
 We can find that the result is `9`, instead of return `{3*3}` directly, which means that it is vulnerable to SSTI
 
@@ -237,6 +237,6 @@ However, we do want to see the value(the flag), so we should use `popen`. Here i
 
 To implement, simply include the command inside `popen` and add `.read()` so that we can read the result. With this, the full command will be `${self.module.cache.util.os.popen('cat /flag.txt').read()}`
 
-![image.png](Spookifier/image%203.png)
+![image.png](images/image%203.png)
 
 Flag: `HTB{t3mpl4t3_1nj3ct10n_C4n_3x1st5_4nywh343!!}`
