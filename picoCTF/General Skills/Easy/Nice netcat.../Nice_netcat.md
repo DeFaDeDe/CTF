@@ -50,3 +50,5 @@ Upon the connection, we can see many numbers. We can deduce it is decimal ASCII 
 Convert them back to characters, and we can get the flag
 
 ![image.png](images/image%201.png)
+
+Flag: `picoCTF{g00d_k1tty!_n1c3_k1tty!_f7a6e}`
