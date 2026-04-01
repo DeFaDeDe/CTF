@@ -38,7 +38,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Upon reaching to port 80, we will see the help message
 
-![image.png](Pickle%20Rick/image%201.png)
+![image.png](images/image%201.png)
 
 Is the first hint to use Burp?
 
@@ -87,7 +87,7 @@ Finished
 
 Go to robots.txt, and we find a weird string `Wubbalubbadubdub` that should not be seen in a normal robots.txt file, which might be a password
 
-![image.png](Pickle%20Rick/image%202.png)
+![image.png](images/image%202.png)
 
 ## SSH (Port 22)
 
@@ -137,13 +137,13 @@ Finished
 
 It seems that we are correct and find `login.php`. We can use the credential `R1ckRul3s:Wubbalubbadubdub` to log in
 
-![image.png](Pickle%20Rick/image%203.png)
+![image.png](images/image%203.png)
 
 ## Ingredient 1
 
 Once we log in, we will be redirected to the command panel
 
-![image.png](Pickle%20Rick/image%204.png)
+![image.png](images/image%204.png)
 
 I tried some simple commands to gather some info:
 
@@ -168,17 +168,17 @@ drwxrwxr-x 2 ubuntu ubuntu 4096 Feb 10  2019 assets
 
 Cat it of course! But no so simple
 
-![image.png](Pickle%20Rick/image%205.png)
+![image.png](images/image%205.png)
 
 It is blocked by the frontend, probably using some blacklist, the backend will still gladly execute the command.
 
 So we need to bypass it. Remember the Burp hint appears before? Maybe it is time. A comment again, ~~I really need to view the source~~
 
-![image.png](Pickle%20Rick/image%206.png)
+![image.png](images/image%206.png)
 
 Turn out it is a nested base64 encoded string, definitely worth my time
 
-![image.png](Pickle%20Rick/image%207.png)
+![image.png](images/image%207.png)
 
 But this also gives me an idea: what if we base64-encode the entire command?
 
@@ -194,11 +194,11 @@ With that, it worked! We find the first ingredient, which is `mr. meeseek hair`
 
 ## Other tabs?
 
-![image.png](Pickle%20Rick/image%208.png)
+![image.png](images/image%208.png)
 
 At the same time, I am also a bit curious about the other tabs, but they are all `denied.php`.
 
-![image.png](Pickle%20Rick/image%209.png)
+![image.png](images/image%209.png)
 
  I first thought, do I need to alter my request somehow to bypass the check? But I am clueless even after intercepting the requests
 
