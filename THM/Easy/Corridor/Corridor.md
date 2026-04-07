@@ -88,4 +88,4 @@ The first one (0), which is the `/cfcd208495d565ef66e7dff9f98764da` endpoint, sh
 
 ![image.png](images/image%205.png)
 
-Flag: **`flag{2477ef02448ad9156661ac40a6b8862e`**
+Flag: **`flag{2477ef02448ad9156661ac40a6b8862e}`**
