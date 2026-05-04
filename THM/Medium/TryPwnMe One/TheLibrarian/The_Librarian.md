@@ -235,7 +235,7 @@ To get a shell, we need three things:
 
 For `/bin/sh`, I set a breakpoint in main, then after it hits the breakpoint, I search for `/bin/sh`, and use `vmmap` to know the start of Libc, then subtract to find the offset `0x1b3d88`.
 
-![image.png](The%20Librarian/image.png)
+![image.png](images/image.png)
 
 Then similarly, use `ROPgadget` to find ret, it is `0x4004c6`
 
@@ -278,7 +278,7 @@ io.interactive()
 
 If we run the exploit locally, we will see we can run Arbitrary commands
 
-![image.png](The%20Librarian/image%201.png)
+![image.png](images/image%201.png)
 
 Run remotely to get flag
 
