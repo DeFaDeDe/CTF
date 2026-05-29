@@ -102,7 +102,7 @@ I tried to access the `host-manager` and `manager` endpoint, but they only allow
 
 The `example` endpoint is also vulnerable, but exploiting it does not help us gain a foothold.
 
-For more info, read this [writeup]([https://www.invicti.com/web-application-vulnerabilities/apache-tomcat-examples-directory-vulnerabilities](https://www.invicti.com/web-application-vulnerabilities/apache-tomcat-examples-directory-vulnerabilities))
+For more info, read this [writeup]([https://www.invicti.com/web-application-vulnerabilities/apache-tomcat-examples-directory-vulnerabilities)
 
 ## CVE-2020-1938
 
@@ -110,7 +110,7 @@ I then take a look at [Tomcat patches](https://tomcat.apache.org/security-9.html
 
 ![image.png](images/image%203.png)
 
-We can utilize [CVE-2020-1938]([https://github.com/Hancheng-Lei/Hacking-Vulnerability-CVE-2020-1938-Ghostcat/blob/main/CVE-2020-1938.md](https://github.com/Hancheng-Lei/Hacking-Vulnerability-CVE-2020-1938-Ghostcat/blob/main/CVE-2020-1938.md)) to potential read some files. 
+We can utilize [CVE-2020-1938](https://github.com/Hancheng-Lei/Hacking-Vulnerability-CVE-2020-1938-Ghostcat/blob/main/CVE-2020-1938.md) to potential read some files. 
 
 I believe we can’t achieve RCE because we can’t upload files.
 
