@@ -1,0 +1,33 @@
+# Bit-O-Asm-1
+
+![alt text](images/image.png)
+
+Here is the assembly code.
+
+```
+<+0>:     endbr64 
+<+4>:     push   rbp
+<+5>:     mov    rbp,rsp
+<+8>:     mov    DWORD PTR [rbp-0x4],edi
+<+11>:    mov    QWORD PTR [rbp-0x10],rsi
+<+15>:    mov    eax,0x30
+<+20>:    pop    rbp
+<+21>:    ret
+```
+
+I found a [Youtube video](https://youtu.be/u_-oQx_4jvo?si=Fsiy6veruJCt95PK) that explains Stack well.
+
+A anotated version is down below.
+
+```
+<+0>:     endbr64 # Terminate a indirect jump and has no effect on the values. Visit https://stackoverflow.com/questions/56905811/what-does-the-endbr64-instruction-actually-do for more details
+<+4>:     push   rbp # Push the Base Pointer (RBP) of the caller function into the stack
+<+5>:     mov    rbp,rsp # Initialize the stack base pointer (RBP) to the Stack pointer (RSP). Usually we will then subtract the Stack pointer to make a stack frame on top of the current stack frame
+<+8>:     mov    DWORD PTR [rbp-0x4],edi # Store the EDI register value 4 bytes away from RBP. DWORD means Double Word (A word means 2 bytes), and therefore 4 bytes in total.
+<+11>:    mov    QWORD PTR [rbp-0x10],rsi # Similarly, QWORD means quad words, therefore 8 bytes in total is used to store the RSI register.
+<+15>:    mov    eax,0x30 # Now we use to store 0x30 (48 in decimial) to EAX, a register dedicated for return values
+<+20>:    pop    rbp # Pop the stored base pointer, so that we know the base address of the caller function
+<+21>:    ret # Go to the next instruction in the caller function with the stored return address 
+```
+
+So all we need to do is pack the value inside `picoCTF{}`
